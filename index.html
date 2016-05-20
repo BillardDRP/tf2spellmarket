@@ -38,13 +38,21 @@
 <a href="http://backpack.tf/developer">Backpack.TF Web API</a>
 <a href="http://developer.valvesoftware.com/wiki/Steam_Web_API">Steam Web API</a>
 
-<?php
+
+<?PHP
+
 $appid = "440";
+
 $apikey = "7CDF4843997AB718BB3735429E127131";
-$schema = "http://api.steampowered.com/IEconItems_440/GetSchema/v0001/?key=7CDF4843997AB718BB3735429E127131&language=en_US&format=json";
-$json = json_decode(filegetcontents($schema), true);
-echo $json["result"]["qualities"]["rarity1"];
-echo var_dump($schema)
+
+$api = "http://api.steampowered.com/IEconItems_440/GetSchema/v0001/?key=7CDF4843997AB718BB3735429E127131&language=en_US&format=json";
+
+$json = file_get_contents($api);
+
+$schema = json_decode($json);
+
+print var_dump($schema);
+
 ?>
 
 </body>
